@@ -1,3 +1,5 @@
+package DnD.Character;
+
 public class Stats {
     private int strength;
     private int dexterity;
@@ -20,12 +22,17 @@ public class Stats {
     }
 
     public void print() {
-        System.out.println("~~~~Attributes~~~~" +
+        System.out.println(this);
+    }
+
+    @Override
+    public String toString() {
+        return "~~~~Attributes~~~~" +
                 "\n\tStrength: " + strength +
                 "\n\tDexterity: " + dexterity +
                 "\n\tConstitution: " + constitution +
                 "\n\tIntellect: " + intellect +
                 "\n\tWisdom: " + wisdom +
-                "\n\tCharisma: " + charisma + "\n");
+                "\n\tCharisma: " + charisma + "\n";
     }
 }

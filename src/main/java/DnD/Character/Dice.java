@@ -1,3 +1,5 @@
+package DnD.Character;
+
 public class Dice {
     private final static int NUMBERS = 3;
 

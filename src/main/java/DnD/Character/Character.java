@@ -1,12 +1,23 @@
+package DnD.Character;
+
+import DnD.Races.CharacterClass;
+
 // Originator
 public class Character {
     private String name;
     private String dndclass;
     private Stats attributes;
+    private CharacterClass race;
 
     public Character(String name, String dndclass) {
         this.name = name;
         this.dndclass = dndclass;
+        this.attributes = Stats.generate();
+    }
+
+    public Character(String name, CharacterClass race) {
+        this.name = name;
+        this.race = race;
         this.attributes = Stats.generate();
     }
 
@@ -18,8 +29,8 @@ public class Character {
 
     public void printSheet() {
         System.out.println("Character" +
-                "\nName: " + name +
-                "\nDnDclass: " + dndclass);
+                "\nName: " + name);
+        race.print();
         attributes.print();
     }
 
