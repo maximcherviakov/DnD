@@ -1,20 +1,19 @@
 package DnD.Character;
 
+import java.util.HashMap;
+
 public class Stats {
-    private int strength;
-    private int dexterity;
-    private int constitution;
-    private int intellect;
-    private int wisdom;
-    private int charisma;
+    HashMap<String, Integer> stats;
 
     public Stats(int strength, int dexterity, int constitution, int intellect, int wisdom, int charisma) {
-        this.strength = strength;
-        this.dexterity = dexterity;
-        this.constitution = constitution;
-        this.intellect = intellect;
-        this.wisdom = wisdom;
-        this.charisma = charisma;
+        stats = new HashMap<>();
+
+        stats.put("Strength", strength);
+        stats.put("Dexterity", dexterity);
+        stats.put("Constitution", constitution);
+        stats.put("Intellect", intellect);
+        stats.put("Wisdom", wisdom);
+        stats.put("Charisma", charisma);
     }
 
     public static Stats generate() {
@@ -22,17 +21,21 @@ public class Stats {
     }
 
     public void print() {
+        System.out.println("~~~~Attributes~~~~");
         System.out.println(this);
+    }
+
+    public HashMap<String, Integer> getStats() {
+        return stats;
     }
 
     @Override
     public String toString() {
-        return "~~~~Attributes~~~~" +
-                "\n\tStrength: " + strength +
-                "\n\tDexterity: " + dexterity +
-                "\n\tConstitution: " + constitution +
-                "\n\tIntellect: " + intellect +
-                "\n\tWisdom: " + wisdom +
-                "\n\tCharisma: " + charisma + "\n";
+        return "\n\tStrength: " + stats.get("Strength") +
+               "\n\tDexterity: " + stats.get("Dexterity") +
+               "\n\tConstitution: " + stats.get("Constitution") +
+               "\n\tIntellect: " + stats.get("Intellect") +
+               "\n\tWisdom: " + stats.get("Wisdom") +
+               "\n\tCharisma: " + stats.get("Charisma") + "\n";
     }
 }

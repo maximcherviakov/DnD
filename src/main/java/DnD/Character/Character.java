@@ -1,13 +1,16 @@
 package DnD.Character;
 
-import DnD.Races.CharacterClass;
+import DnD.Races.CharacterRace;
+import DnD.Races.RaceAbstractFactory;
+
+import java.util.Set;
 
 // Originator
 public class Character {
     private String name;
     private String dndclass;
     private Stats attributes;
-    private CharacterClass race;
+    private CharacterRace race;
 
     public Character(String name, String dndclass) {
         this.name = name;
@@ -15,9 +18,9 @@ public class Character {
         this.attributes = Stats.generate();
     }
 
-    public Character(String name, CharacterClass race) {
+    public Character(String name, RaceAbstractFactory race) {
         this.name = name;
-        this.race = race;
+        this.race = race.create();
         this.attributes = Stats.generate();
     }
 
@@ -25,6 +28,18 @@ public class Character {
         this.name = name;
         this.dndclass = dndclass;
         this.attributes = attributes;
+    }
+
+    public void addRaceBonuses() {
+        Set<String> keys = attributes.getStats().keySet();
+
+        for (String key : keys) {
+            attributes.getStats().put(key, attributes.getStats().get(key) + race.getRaceBonuses().getStats().get(key));
+        }
+    }
+
+    public void talk() {
+        race.saySomething();
     }
 
     public void printSheet() {
