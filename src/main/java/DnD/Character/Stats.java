@@ -4,6 +4,7 @@ import DnD.Visitor.Element;
 import DnD.Visitor.Visitor;
 
 import java.util.HashMap;
+import java.util.TreeMap;
 
 public class Stats implements Element {
     HashMap<String, Integer> stats;
@@ -43,7 +44,7 @@ public class Stats implements Element {
     }
 
     @Override
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
+    public TreeMap accept(Visitor visitor) {
+        return visitor.visit(this);
     }
 }

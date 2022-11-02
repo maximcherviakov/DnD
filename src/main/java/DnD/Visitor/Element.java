@@ -1,5 +1,7 @@
 package DnD.Visitor;
 
+import java.util.TreeMap;
+
 public interface Element {
-    void accept(Visitor visitor);
+    TreeMap accept(Visitor visitor);
 }

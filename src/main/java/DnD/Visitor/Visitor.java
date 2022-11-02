@@ -4,10 +4,12 @@ import DnD.Character.Character;
 import DnD.Character.Stats;
 import DnD.Races.CharacterRace;
 
+import java.util.TreeMap;
+
 public interface Visitor {
-    void visit(Character visitor);
+    TreeMap visit(Character visitor);
 
-    void visit(Stats stats);
+    TreeMap visit(Stats stats);
 
-    void visit(CharacterRace race);
+    TreeMap visit(CharacterRace race);
 }

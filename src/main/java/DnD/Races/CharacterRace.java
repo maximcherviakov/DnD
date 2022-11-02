@@ -4,15 +4,13 @@ import DnD.Character.Stats;
 import DnD.Visitor.Element;
 import DnD.Visitor.Visitor;
 
+import java.util.TreeMap;
+
 public abstract class CharacterRace implements Element {
     protected String name;
     protected Stats bonuses;
 
     public abstract void saySomething();
-
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
-    }
 
     public Stats getRaceBonuses() {
         return bonuses;
@@ -24,4 +22,12 @@ public abstract class CharacterRace implements Element {
         System.out.println(bonuses.toString());
     }
 
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public TreeMap accept(Visitor visitor) {
+        return visitor.visit(this);
+    }
 }

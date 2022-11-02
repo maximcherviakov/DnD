@@ -6,6 +6,7 @@ import DnD.Visitor.Element;
 import DnD.Visitor.Visitor;
 
 import java.util.Set;
+import java.util.TreeMap;
 
 // Originator
 public class Character implements Element {
@@ -38,6 +39,22 @@ public class Character implements Element {
         for (String key : keys) {
             attributes.getStats().put(key, attributes.getStats().get(key) + race.getRaceBonuses().getStats().get(key));
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDndclass() {
+        return dndclass;
+    }
+
+    public Stats getAttributes() {
+        return attributes;
+    }
+
+    public CharacterRace getRace() {
+        return race;
     }
 
     public void talk() {
@@ -73,8 +90,8 @@ public class Character implements Element {
     }
 
     @Override
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
+    public TreeMap accept(Visitor visitor) {
+        return visitor.visit(this);
     }
 
     // Memento
