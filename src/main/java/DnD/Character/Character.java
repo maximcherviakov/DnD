@@ -2,11 +2,13 @@ package DnD.Character;
 
 import DnD.Races.CharacterRace;
 import DnD.Races.RaceAbstractFactory;
+import DnD.Visitor.Element;
+import DnD.Visitor.Visitor;
 
 import java.util.Set;
 
 // Originator
-public class Character {
+public class Character implements Element {
     private String name;
     private String dndclass;
     private Stats attributes;
@@ -68,6 +70,11 @@ public class Character {
 
     public void setAttributes(Stats attributes) {
         this.attributes = attributes;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 
     // Memento

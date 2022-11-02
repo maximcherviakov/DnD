@@ -1,8 +1,11 @@
 package DnD.Character;
 
+import DnD.Visitor.Element;
+import DnD.Visitor.Visitor;
+
 import java.util.HashMap;
 
-public class Stats {
+public class Stats implements Element {
     HashMap<String, Integer> stats;
 
     public Stats(int strength, int dexterity, int constitution, int intellect, int wisdom, int charisma) {
@@ -37,5 +40,10 @@ public class Stats {
                "\n\tIntellect: " + stats.get("Intellect") +
                "\n\tWisdom: " + stats.get("Wisdom") +
                "\n\tCharisma: " + stats.get("Charisma") + "\n";
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 }
