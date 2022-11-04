@@ -1,0 +1,28 @@
+[
+  {
+    "Stats": {
+      "Charisma": 13,
+      "Dexterity": 12,
+      "Wisdom": 17,
+      "Intellect": 15,
+      "Strength": 14,
+      "Constitution": 15
+    },
+    "dndClass": null,
+    "Name": "Gimli, son of Glóin",
+    "Race": "Dwarf"
+  },
+  {
+    "Stats": {
+      "Charisma": 17,
+      "Dexterity": 14,
+      "Wisdom": 18,
+      "Intellect": 15,
+      "Strength": 9,
+      "Constitution": 16
+    },
+    "dndClass": null,
+    "Name": "Aragorn",
+    "Race": "Human"
+  }
+]
